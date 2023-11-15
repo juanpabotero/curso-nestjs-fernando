@@ -1,0 +1,18 @@
+version: '3'
+
+# services: indico los servicios que voy a usar
+# image: indico la imagen que voy a usar
+# ports: indico el puerto de mi maquina y el puerto del contenedor
+# environment: indico las variables de entorno que voy a usar
+# volumes: indico la ruta de mi maquina y la ruta del contenedor,
+# para mantener y que se sincronicen los archivos
+services:
+  db:
+    image: mongo:5
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGODB_DATABASE: nest-pokemon
+    volumes:
+      - ./mongo:/data/db
